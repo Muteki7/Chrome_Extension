@@ -135,58 +135,6 @@ youtube-tracker/
 
 ---
 
-## 🔒 Security Notes
-
-### ⚠️ Important: API Key Exposure
-The YouTube Data API key in `background.js` is currently exposed in the source code. Before pushing to production:
-
-1. **Move the API key to a secure location** (environment variables, backend server)
-2. **Regenerate the API key** from Google Cloud Console
-3. **Set API restrictions** to YouTube Data API only
-4. **Consider using a backend proxy** for API calls instead of client-side
-
-```javascript
-// ❌ Current (Unsafe for production)
-const apiKey = 'AIzaSyAU0sit32xHRHI_JzhjdBzrDWD6j1zIobM';
-
-// ✅ Recommended (Use backend instead)
-// Call your backend endpoint which securely handles API requests
-```
-
-### Password Storage
-- Passwords are hashed and stored in Chrome's sync storage
-- For production, consider implementing proper encryption
-
----
-
-## 🐛 Known Issues & TODO
-
-- [ ] Fix typo in background.js line 41: `console.log(\`Channel category: ${cate}\`);` (undefined variable)
-- [ ] Implement server-side API proxy to hide YouTube API key
-- [ ] Add password hashing for enhanced security
-- [ ] Add import/export settings functionality
-- [ ] Add category icons for better visual identification
-- [ ] Implement watch time analytics dashboard
-- [ ] Add weekly/monthly statistics view
-
----
-
-## 🧪 Development & Testing
-
-### Testing the Extension
-1. Load the extension in Chrome Dev mode
-2. Open a YouTube video page
-3. Check browser console (F12) for debugging logs
-4. Test blocking/allowing channels and categories
-5. Verify watch time tracking in storage
-
-### Debugging
-- Open `chrome://extensions/` and click "Service Worker" to see background.js logs
-- Right-click the settings page and select "Inspect" to debug settings.js
-- Use Chrome DevTools to inspect content scripts
-
----
-
 ## 📝 Notes for Contributors
 
 - Follow the existing code style (modern JavaScript with async/await)
@@ -217,7 +165,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 🎓 Credits & Inspiration
 
-Built as a productivity tool to help users maintain healthy YouTube habits and reduce digital distractions. The Matrix theme was chosen to make content blocking feel empowering and fun.
+Built as a productivity tool to help users maintain healthy YouTube habits and reduce digital distractions. The Matrix theme was chosen to escape the matrix.
 
 ---
 
